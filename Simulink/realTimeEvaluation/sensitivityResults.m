@@ -1,0 +1,22 @@
+fprintf("<strong> %s - %s - fPass = %.4f </strong> \n",channelNoiseBehaviour,filterType,fPass);
+fprintf("<strong> SCENARIO WITHOUT A SD-WAN SOLUTION: </strong> \n");
+fprintf("-  <strong> Path availability mean </strong>:%f and <strong> variance </strong> \n",mean(sensitivityPathAvailabilityVector(1:stoppedSimulation(1,1)-firstValidSimulation+1,1)),var(sensitivityPathAvailabilityVector(1:stoppedSimulation(1,1)-firstValidSimulation+1,1)));
+fprintf("-  <strong> System availability mean </strong>:%f and <strong> variance </strong> \n",mean(sensitivitySystemAvailabilityVector(1:stoppedSimulation(1,1)-firstValidSimulation+1,1)),var(sensitivitySystemAvailabilityVector(1:stoppedSimulation(1,1)-firstValidSimulation+1,1)));
+fprintf("-  <strong> P1 Percentage </strong>:%f %% of  SENT bytes \n",sensitivityPercentageSentP1Bytes(1,1));
+fprintf("-  <strong> Of this P1 Percentage </strong>:%f %% of  SENT bytes  a fraction of:%f %% has gone through link1, a fraction of:%f %% through link2 \n\n",sensitivityPercentageSentP1Bytes(1,1),sensitivitySentP1Links(1,1),sensitivitySentP1Links(2,1));
+fprintf("Percentage of total P1+BG traffic lost -<strong> Link1 </strong>: %f %%, <strong> Link2 </strong>:%f %% \n",sensitivityPercentageLostBytesArray(1,1),sensitivityPercentageLostBytesArray(2,1));
+fprintf("<strong> Number of peaks due to queueing time delays  </strong>:%.0f , due to <strong> noise only </strong> :%.0f, <strong> Total:%.0f </strong> \n",sensitivityExtraPathQueueInstants(1,1),sensitivityExtraNoiseLossesInstants(1,1),sensitivityExtraPathQueueInstants(1,1)+sensitivityExtraNoiseLossesInstants(1,1));
+fprintf("Average extra queueing delay including only queued packets:%f \n",sensitivityAverageQueueTimePartial(1,1));
+fprintf("Average extra queueing delay for all tx packets:%f \n",sensitivityAverageQueueTimeComplete(1,1));
+fprintf("Average time distance amid peaks-<strong> Link1 </strong>: %f, <strong> Link2 </strong>:%f \n",sensitivityAveragePeakDistances(1,1),sensitivityAveragePeakDistances(2,1));
+
+fprintf("\n <strong> SCENARIO WITH SD-WAN: </strong> \n");
+fprintf("-  <strong> Path availability mean </strong>:%f and <strong> variance </strong> \n",mean(sensitivityPathAvailabilityVector(1:stoppedSimulation(1,2)-firstValidSimulation+1,2)),var(sensitivityPathAvailabilityVector(1:stoppedSimulation(1,2)-firstValidSimulation+1,2)));
+fprintf("-  <strong> System availability mean </strong>:%f and <strong> variance </strong> \n",mean(sensitivitySystemAvailabilityVector(1:stoppedSimulation(1,2)-firstValidSimulation+1,2)),var(sensitivitySystemAvailabilityVector(1:stoppedSimulation(1,2)-firstValidSimulation+1,2)));
+fprintf("-  <strong> P1 Percentage </strong>:%f %% of  SENT bytes \n",sensitivityPercentageSentP1Bytes(1,2));
+fprintf("-  <strong> Of this P1 Percentage </strong>:%f %% of  SENT bytes  a fraction of:%f %% has gone through link1, a fraction of:%f %% through link2 \n\n",sensitivityPercentageSentP1Bytes(1,2),sensitivitySentP1Links(1,2),sensitivitySentP1Links(2,2));
+fprintf("Percentage of total P1+BG traffic lost -<strong> Link1 </strong>: %f %%, <strong> Link2 </strong>:%f %% \n",sensitivityPercentageLostBytesArray(1,2),sensitivityPercentageLostBytesArray(2,2));
+fprintf("<strong> Number of peaks due to queueing time delays  </strong>:%.0f , due to <strong> noise only </strong> :%.0f, <strong> Total:%.0f </strong> \n",sensitivityExtraPathQueueInstants(1,2),sensitivityExtraNoiseLossesInstants(1,2),sensitivityExtraPathQueueInstants(1,2)+sensitivityExtraNoiseLossesInstants(1,2));
+fprintf("Average extra queueing delay including <strong> ONLY </strong> queued packets:%f \n",sensitivityAverageQueueTimePartial(1,2));
+fprintf("Average extra queueing delay including <strong> ALL </strong> tx packets:%f \n",sensitivityAverageQueueTimeComplete(1,2));
+fprintf("Average time distance amid peaks-<strong> Link1 </strong>: %f, <strong> Link2 </strong>:%f \n",sensitivityAveragePeakDistances(1,2),sensitivityAveragePeakDistances(2,2));

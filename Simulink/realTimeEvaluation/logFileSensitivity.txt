@@ -1,0 +1,3 @@
+LOG FILE for SENSITIVITY ANALYSIS with queueing time details only for delivered packets that had to wait in queue during simulation
+
+                                             SIMULATION:1.000000 

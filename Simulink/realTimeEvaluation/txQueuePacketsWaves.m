@@ -1,0 +1,40 @@
+function [sentB,spareC,queueL,currentlySentPackets] = txQueuePackets(currentlySentPks,spareCapacity,queueLengthTot,maxPayloadSize,ID)
+    emptyQueue=false;
+    sentB=0; 
+    queueL=queueLengthTot;
+    currentlySentPackets=currentlySentPks;    
+    index=0;
+    index=evalin('base','index');
+    currentLink=0;
+    currentLink=evalin('base','currentLink');
+    currentLinkActive=0;
+    currentLinkActive=evalin('base','currentLinkActive');    
+    if(queueL~=0)
+        while emptyQueue==false
+            if(queueL==0)
+                emptyQueue=true;
+            else
+                if(queueL-maxPayloadSize<0) 
+                    if(queueL<=spareCapacity)                        
+                        sentB=sentB+queueL;
+                        spareCapacity=spareCapacity-queueL;     
+                        currentlySentPackets=currentlySentPackets+1;                                                                      
+                        queueL=0;
+                    else
+                        emptyQueue=true; 
+                    end
+                else
+                    if(maxPayloadSize<=spareCapacity)
+                        sentB=sentB+maxPayloadSize; 
+                        spareCapacity=spareCapacity-maxPayloadSize;
+                        currentlySentPackets=currentlySentPackets+1;
+                        queueL=queueL-maxPayloadSize;
+                    else
+                        emptyQueue=true;
+                    end
+                end
+            end
+        end    
+    end
+    spareC=spareCapacity;    
+end
