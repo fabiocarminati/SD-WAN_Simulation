@@ -90,8 +90,8 @@ for ww=1:2
     sensitivityAverageQueueTimeComplete(1,ww)=mean(averageQueueingTimeVector(:,1));
     sensitivityAverageQueueTimePartial(1,ww)=mean(nonzeros(averageQueueingTimeVector(:,1)));
     %evaluateMeanPeakDistances();
-    sensitivityAveragePeakDistances(1,ww)=avgDistance1;
-    sensitivityAveragePeakDistances(2,ww)=avgDistance2;
+    %sensitivityAveragePeakDistances(1,ww)=avgDistance1;
+    %sensitivityAveragePeakDistances(2,ww)=avgDistance2;
     sensitivityPercentageLostBytesArray(1,ww)=totalPercentageLostBytesLinks(1,1);
     sensitivityPercentageLostBytesArray(2,ww)=totalPercentageLostBytesLinks(1,2);
     stoppedSimulation(1,ww)=simulationNumber-1;
