@@ -89,7 +89,7 @@ for ww=1:2
     sensitivityExtraNoiseLossesInstants(1,ww)=lossesDueToNoise;
     sensitivityAverageQueueTimeComplete(1,ww)=mean(averageQueueingTimeVector(:,1));
     sensitivityAverageQueueTimePartial(1,ww)=mean(nonzeros(averageQueueingTimeVector(:,1)));
-    evaluateMeanPeakDistances();
+    %evaluateMeanPeakDistances();
     sensitivityAveragePeakDistances(1,ww)=avgDistance1;
     sensitivityAveragePeakDistances(2,ww)=avgDistance2;
     sensitivityPercentageLostBytesArray(1,ww)=totalPercentageLostBytesLinks(1,1);
